@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">coex</string>
+    <string name="commaup">\'e</string>
+    <string name="welcome">\hoşgeldin</string>
+    <string name="newAcountHint">coex i kullanmaya başlamak için yeni bir hesap oluştur</string>
+    <string name="inputUserNameHint">kullanıcı adını giriniz</string>
+    <string name="inputPasswordHint">şifrenizi giriniz</string>
+    <string name="inputMailHint">mail adresinizi giriniz</string>
+    <string name="sign_up">kayıt ol</string>
+    <string name="already_have_account">Zaten hesabın var mı?</string>
+    <string name="click_here">Buraya Tıkla</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">giriş yap</string>
+    <string name="loginHint">coex i kullanmaya başlamak için giriş yap</string>
+    <string name="allInput">Tüm alanları doldurunuz</string>
+    <string name="sign_in_button_text">giriş yap</string>
+    <string name="dont_have_account">Hesabın yok mu?</string>
+    <string name="coexpense">coexpense</string>
+    <string name="homepage">Anasayfa</string>
+</resources>

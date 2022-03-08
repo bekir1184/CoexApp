@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "809816291947",
+    "project_id": "coex-1ca6d",
+    "storage_bucket": "coex-1ca6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809816291947:android:70c1088aea92b459e28f2e",
+        "android_client_info": {
+          "package_name": "com.beko.coex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809816291947-j8p091uv3j1i28pjnt1s69fok49rcour.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.beko.coex",
+            "certificate_hash": "dd31125b5c0544068290045364d0edd7fc73887e"
+          }
+        },
+        {
+          "client_id": "809816291947-bc5q90al2ighus6ind8osflrus3bg93q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGEBY-dnBAbllY8c6YgTIMnLhBHUQiSwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809816291947-bc5q90al2ighus6ind8osflrus3bg93q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
