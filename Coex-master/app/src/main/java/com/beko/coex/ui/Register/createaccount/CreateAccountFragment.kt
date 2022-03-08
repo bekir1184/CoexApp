@@ -21,6 +21,7 @@ class CreateAccountFragment : Fragment(R.layout.fragment_create_account) {
         super.onStart()
         setOnClicks()
         setupObserver()
+        
     }
 
     private fun setupObserver() {
