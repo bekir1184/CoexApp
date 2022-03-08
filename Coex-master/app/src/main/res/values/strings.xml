@@ -18,4 +18,6 @@
     <string name="dont_have_account">Hesabın yok mu?</string>
     <string name="coexpense">coexpense</string>
     <string name="homepage">Anasayfa</string>
+    <string name="hello">Merhaba</string>
+    <string name="user">User</string>
 </resources>

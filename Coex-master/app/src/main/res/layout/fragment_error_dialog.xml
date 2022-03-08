@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".utils.ErrorDialog">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:paddingVertical="5dp"
+            android:background="@color/green_dark"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/errorImg"
+                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_baseline_error_24"
+                app:tint="@color/green_light" />
+            <TextView
+                android:layout_weight="6"
+                android:gravity="center"
+                android:id="@+id/errorTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Bir Hata Oluştu"
+                android:fontFamily="@font/quicksand_bold"
+                android:textColor="@color/green_light"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:id="@+id/errorContent"
+            android:layout_marginHorizontal="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tortor tortor, malesuada eu bibendum vel, dictum pharetra enim. "
+            android:fontFamily="@font/quicksand_bold"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            />
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

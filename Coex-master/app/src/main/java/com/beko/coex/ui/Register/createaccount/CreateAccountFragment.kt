@@ -11,6 +11,7 @@ import com.beko.coex.ui.main.HomePageActivity
 import com.beko.coex.utils.Constants.isValidMail
 import com.beko.coex.utils.Constants.makeInvisible
 import com.beko.coex.utils.Constants.makeVisible
+import com.beko.coex.utils.ErrorDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_create_account.*
 
@@ -21,7 +22,7 @@ class CreateAccountFragment : Fragment(R.layout.fragment_create_account) {
         super.onStart()
         setOnClicks()
         setupObserver()
-        
+
     }
 
     private fun setupObserver() {
@@ -60,19 +61,24 @@ class CreateAccountFragment : Fragment(R.layout.fragment_create_account) {
         if(getUserData().isUserValid(password)){
             progressBarSignUp.makeVisible()
             createAccountViewModel.createUser(getUserData(),password)
+        }else{
+            val error =  ErrorDialog("Hata","Bir hata oluştu.")
+            error.show(requireActivity().supportFragmentManager,"TAG")
         }
     }
     private fun User.isUserValid(password: String): Boolean {
         return if (this.email.isEmpty() || password.isEmpty() || this.name.isEmpty()) {
-            mailET.error = "Verilen Alanların Hepsini Doldurmalısınız"
+            val error =  ErrorDialog("Hata","Lütfen tüm alanları doldurunuz. ")
+            error.show(requireActivity().supportFragmentManager,"TAG")
             false
         } else {
             if (!this.email.isValidMail()) {
-                mailET.error = "Geçersiz Mail"
+                val error =  ErrorDialog("Hata","Geçersiz mail adresi , lütfen tekrar giriniz. ")
+                error.show(requireActivity().supportFragmentManager,"TAG")
                 false
             } else if (password.length < 6) {
-                passwordET.error =
-                    "Şifre 6 Haneden Fazla Olmalı"
+                val error =  ErrorDialog("Hata","Şifre 6 hanaden uzun olmalı . ")
+                error.show(requireActivity().supportFragmentManager,"TAG")
                 false
             } else {
                 true
