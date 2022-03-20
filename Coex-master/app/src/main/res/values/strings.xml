@@ -20,4 +20,17 @@
     <string name="homepage">Anasayfa</string>
     <string name="hello">Merhaba</string>
     <string name="user">User</string>
+    <string name="room">oda</string>
+    <string name="create">kur</string>
+    <string name="aNew">yeni bir</string>
+    <string name="create_a_new_room_for_coex_base">coex i kullanmaya başlamak için yeni bir oda oluştur</string>
+    <string name="want_to_join_name">Girmek istediğiniz oda adını giriniz</string>
+    <string name="input_password">Şifre giriniz</string>
+    <string name="join_room_btn">Odaya gir</string>
+    <string name="already_have_room">Bir odaya girmek için</string>
+    <string name="CreateRoom">Oda kur</string>
+    <string name="input_room_name">Odanıza eşsiz bir isim verin</string>
+    <string name="bir">bir</string>
+    <string name="join_a">ya gir</string>
+    <string name="i_want_create_a_room">Yeni bir oda kurmak için</string>
 </resources>

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_createAccountFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_createAccountFragment_to_createRoomFragment"
+            app:destination="@id/createRoomFragment" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
@@ -22,5 +25,22 @@
         <action
             android:id="@+id/action_signInFragment_to_createAccountFragment"
             app:destination="@id/createAccountFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_createRoomFragment"
+            app:destination="@id/createRoomFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/createRoomFragment"
+        android:name="com.beko.coex.ui.Register.createroom.CreateRoomFragment"
+        android:label="fragment_create_room"
+        tools:layout="@layout/fragment_create_room" >
+        <action
+            android:id="@+id/action_createRoomFragment_to_joinRoomFragment"
+            app:destination="@id/joinRoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/joinRoomFragment"
+        android:name="com.beko.coex.JoinRoomFragment"
+        android:label="fragment_join_room"
+        tools:layout="@layout/fragment_join_room" />
 </navigation>
