@@ -1,5 +1,9 @@
 package com.beko.coex.ui.Register.createaccount
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -17,12 +21,16 @@ class CreateAccountFragment : Fragment(R.layout.fragment_create_account) {
     private lateinit var binding : FragmentCreateAccountBinding
     private val createAccountViewModel : CreateAccountViewModel by viewModels()
 
-    override fun onStart() {
-        super.onStart()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentCreateAccountBinding.inflate(layoutInflater)
         setOnClicks()
         setupObserver()
-
+        return binding.root
     }
 
     private fun setupObserver() {

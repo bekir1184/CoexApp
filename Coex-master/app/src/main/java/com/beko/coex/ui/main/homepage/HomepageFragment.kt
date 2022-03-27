@@ -17,12 +17,16 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomepageFragment : Fragment(R.layout.fragment_homepage) {
     private lateinit var binding :FragmentHomepageBinding
     private val homepageViewModel : HomepageViewModel by viewModels()
-    override fun onStart() {
-        super.onStart()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View{
         binding = FragmentHomepageBinding.inflate(layoutInflater)
         setObserver()
+        return binding.root
     }
-
     private fun setObserver() {
         homepageViewModel.userInfo.observe(this.viewLifecycleOwner, Observer { user ->
             setData(user)
