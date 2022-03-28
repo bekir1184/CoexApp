@@ -26,7 +26,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View{
         binding  = FragmentSignInBinding.inflate(layoutInflater)
         setOnClicks()
         setupObserver()
@@ -37,7 +37,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
     private fun setupObserver() {
         signinViewModel.isDone.observe(this.viewLifecycleOwner , Observer {isLoggedIn ->
             if(isLoggedIn)
-                    findNavController().navigate(R.id.action_createAccountFragment_to_createRoomFragment)
+                findNavController().navigate(R.id.action_signInFragment_to_createRoomFragment)
         })
     }
 

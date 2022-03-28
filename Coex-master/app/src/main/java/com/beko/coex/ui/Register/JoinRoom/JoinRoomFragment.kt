@@ -5,9 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.beko.coex.R
+import com.beko.coex.databinding.FragmentJoinRoomBinding
 
 
-class JoinRoomFragment : Fragment(R.layout.fragment_join_room) {
-
+class JoinRoomFragment : Fragment() {
+    private lateinit var binding : FragmentJoinRoomBinding
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View{
+        binding =  FragmentJoinRoomBinding.inflate(layoutInflater)
+        return binding.root
+    }
 }

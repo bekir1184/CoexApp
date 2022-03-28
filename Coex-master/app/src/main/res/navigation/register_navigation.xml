@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/joinRoomFragment"
-        android:name="com.beko.coex.JoinRoomFragment"
+        android:name="com.beko.coex.ui.Register.JoinRoom.JoinRoomFragment"
         android:label="fragment_join_room"
         tools:layout="@layout/fragment_join_room" />
 </navigation>

@@ -48,16 +48,6 @@ class CreateAccountFragment : Fragment(R.layout.fragment_create_account) {
 
     }
 
-    /*
-    private fun startIntent() {
-        startActivity(
-            Intent(
-                this.requireContext(),
-                HomePageActivity::class.java
-            )
-        ).also { this.requireActivity().finish() }
-    }
-     */
 
 
     private fun setOnClicks() {
@@ -65,7 +55,6 @@ class CreateAccountFragment : Fragment(R.layout.fragment_create_account) {
             createAccount()
         }
         binding.clickHereButton.setOnClickListener {
-            println("Neden Çalışmıyor")
             findNavController().navigate(R.id.action_createAccountFragment_to_signInFragment)
         }
 
