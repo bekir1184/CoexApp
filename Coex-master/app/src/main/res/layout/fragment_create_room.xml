@@ -125,7 +125,7 @@
 
 
     <Button
-        android:id="@+id/loginRoomBtn"
+        android:id="@+id/createRoomBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
@@ -170,7 +170,7 @@
     </LinearLayout>
 
     <ProgressBar
-        android:id="@+id/progressBarSignUp"
+        android:id="@+id/progressBarCreateRoom"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -15,12 +15,14 @@ class ErrorDialog(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View{
         binding = FragmentErrorDialogBinding.inflate(layoutInflater)
         val view = binding.root
         binding.errorTitle.text = title
         binding.errorContent.text = content
-
+        binding.okBtn.setOnClickListener {
+            dismiss()
+        }
         return view
     }
 

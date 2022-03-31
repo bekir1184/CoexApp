@@ -33,4 +33,6 @@
     <string name="bir">bir</string>
     <string name="join_a">ya gir</string>
     <string name="i_want_create_a_room">Yeni bir oda kurmak için</string>
+    <string name="okey">tamam</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tortor tortor, malesuada eu bibendum vel, dictum pharetra enim.</string>
 </resources>

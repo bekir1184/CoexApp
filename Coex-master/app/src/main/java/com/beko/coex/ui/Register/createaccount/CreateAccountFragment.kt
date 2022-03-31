@@ -14,6 +14,7 @@ import com.beko.coex.utils.Constants.isValidMail
 import com.beko.coex.utils.Constants.makeInvisible
 import com.beko.coex.utils.Constants.makeVisible
 import com.beko.coex.utils.ErrorDialog
+import com.beko.coex.utils.Functions
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -95,7 +96,8 @@ class CreateAccountFragment : Fragment(R.layout.fragment_create_account) {
         val email = binding.mailET.text.toString()
         return User(
             name,
-            email
+            email,
+            Functions.getCurrentUserUid()!!
         )
 
     }

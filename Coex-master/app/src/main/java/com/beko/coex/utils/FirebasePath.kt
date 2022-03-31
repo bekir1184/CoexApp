@@ -9,4 +9,8 @@ object FirebasePath {
     val userRef = Firebase.firestore.collection("database")
         .document(RELEASE_TYPE)
         .collection("users")
+
+    val roomRef = Firebase.firestore.collection("database")
+        .document(RELEASE_TYPE)
+        .collection("rooms")
 }

@@ -31,6 +31,9 @@ class SigninRepository @Inject constructor() {
             false
         }
     }
+
+    //TODO: Google sign in
+    /*
     suspend fun signInWithCredential(credential: AuthCredential): Boolean {
         return try {
             val userInfo = Firebase.auth.signInWithCredential(credential).await().additionalUserInfo
@@ -49,6 +52,9 @@ class SigninRepository @Inject constructor() {
             false
         }
     }
+     */
+
+    // If google sign in use
     private suspend fun saveUserToFireStore(user: User): Boolean {
         Functions.getCurrentUserUid()?.let { uid ->
             return try {

@@ -26,6 +26,7 @@
       <list>
         <option value="navigationResourceFile" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
