@@ -7,19 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.beko.coex.R
 import com.beko.coex.databinding.FragmentCreateRoomBinding
 import com.beko.coex.models.Room
 import com.beko.coex.models.User
-import com.beko.coex.utils.Constants.isValidMail
+import com.beko.coex.ui.main.HomePageActivity
 import com.beko.coex.utils.Constants.makeVisible
 import com.beko.coex.utils.ErrorDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CreateRoomFragment : Fragment() {
-
+    private val args : CreateRoomFragmentArgs by navArgs()
     private val createRoomViewModel: CreateRoomViewModel by viewModels()
     private lateinit var binding : FragmentCreateRoomBinding
     private lateinit var user : User
@@ -31,17 +33,23 @@ class CreateRoomFragment : Fragment() {
         binding  = FragmentCreateRoomBinding.inflate(layoutInflater)
         setOnClicks()
         setupObserver()
+        user = User(args.name,args.mail,args.uid)
         return binding.root
     }
 
     private fun setupObserver() {
         createRoomViewModel.isDone.observe(this.viewLifecycleOwner) { isDone ->
-            if (isDone){
-                val error =  ErrorDialog("Oda Kuruldu ","Odanız kuruldu")
-                error.show(requireActivity().supportFragmentManager,"TAG")
-            }
+            if (isDone) startIntent()
 
         }
+    }
+    private fun startIntent() {
+        startActivity(
+            Intent(
+                this.requireContext(),
+                HomePageActivity::class.java
+            )
+        ).also { this.requireActivity().finish() }
     }
 
     private fun setOnClicks() {
@@ -56,7 +64,9 @@ class CreateRoomFragment : Fragment() {
     private fun checkRoomData() {
         val roomName = binding.roomName.text.toString()
         val password = binding.password.text.toString()
-        val room = Room(roomName,password, emptyList())
+        val userList = mutableListOf<User>()
+        userList.add(user)
+        val room = Room(roomName,password, userList)
 
         if(roomName.isEmpty() || password.isEmpty()){
             val error =  ErrorDialog("Hata","Tüm alanları doldurunuz")

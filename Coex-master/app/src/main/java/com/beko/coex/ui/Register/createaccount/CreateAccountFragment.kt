@@ -40,7 +40,9 @@ class CreateAccountFragment : Fragment(R.layout.fragment_create_account) {
         ) { isRegistered: Boolean ->
             binding.progressBarSignUp.makeInvisible()
             if (isRegistered) {
-                findNavController().navigate(R.id.action_createAccountFragment_to_createRoomFragment)
+                val action = CreateAccountFragmentDirections.actionCreateAccountFragmentToCreateRoomFragment(
+                    getUserData().name,getUserData().email,getUserData().uid)
+                findNavController().navigate(action)
             }else{
                 val error =  ErrorDialog("Hata","Bir hata oluştu lütfen tekrar deneyiniz.")
                 error.show(requireActivity().supportFragmentManager,"TAG")

@@ -37,10 +37,29 @@
         <action
             android:id="@+id/action_createRoomFragment_to_joinRoomFragment"
             app:destination="@id/joinRoomFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="mail"
+            app:argType="string" />
+        <argument
+            android:name="uid"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/joinRoomFragment"
         android:name="com.beko.coex.ui.Register.JoinRoom.JoinRoomFragment"
         android:label="fragment_join_room"
-        tools:layout="@layout/fragment_join_room" />
+        tools:layout="@layout/fragment_join_room" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="mail"
+            app:argType="string" />
+        <argument
+            android:name="uid"
+            app:argType="string" />
+    </fragment>
 </navigation>

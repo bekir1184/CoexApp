@@ -61,9 +61,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="500" />
-                            <option name="y" value="20" />
+                            <option name="x" value="528" />
+                            <option name="y" value="4" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_createRoomFragment_to_joinRoomFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -73,8 +82,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="510" />
-                            <option name="y" value="-332" />
+                            <option name="x" value="782" />
+                            <option name="y" value="14" />
                           </Point>
                         </option>
                       </LayoutPositions>
