@@ -1,4 +1,4 @@
-package com.beko.coex.ui.register.JoinRoom
+package com.beko.coex.ui.register.joinroom
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

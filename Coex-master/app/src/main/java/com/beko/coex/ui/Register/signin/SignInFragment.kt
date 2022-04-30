@@ -1,6 +1,5 @@
-package com.beko.coex.ui.Register.signin
+package com.beko.coex.ui.register.signin
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.beko.coex.R
 import com.beko.coex.databinding.FragmentSignInBinding
-import com.beko.coex.ui.main.HomePageActivity
 import com.beko.coex.utils.Constants.isValidMail
 import com.beko.coex.utils.Constants.makeVisible
 import com.beko.coex.utils.ErrorDialog

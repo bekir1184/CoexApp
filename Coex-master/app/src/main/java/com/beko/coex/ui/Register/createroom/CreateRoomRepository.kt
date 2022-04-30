@@ -1,4 +1,4 @@
-package com.beko.coex.ui.Register.createroom
+package com.beko.coex.ui.register.createroom
 
 import android.util.Log
 import com.beko.coex.models.Room

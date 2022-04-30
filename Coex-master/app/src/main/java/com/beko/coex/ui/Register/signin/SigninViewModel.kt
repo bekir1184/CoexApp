@@ -1,4 +1,4 @@
-package com.beko.coex.ui.Register.signin
+package com.beko.coex.ui.register.signin
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

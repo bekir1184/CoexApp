@@ -1,4 +1,4 @@
-package com.beko.coex.ui.Register.createaccount
+package com.beko.coex.ui.register.createaccount
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +15,6 @@ import com.beko.coex.utils.Constants.makeInvisible
 import com.beko.coex.utils.Constants.makeVisible
 import com.beko.coex.utils.ErrorDialog
 import com.beko.coex.utils.Functions
-import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.beko.coex.ui.register.JoinRoom
+package com.beko.coex.ui.register.joinroom
 
 import android.util.Log
 import com.beko.coex.models.Room

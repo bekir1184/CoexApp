@@ -1,4 +1,4 @@
-package com.beko.coex.ui.Register.JoinRoom
+package com.beko.coex.ui.register.joinroom
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,9 +11,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.beko.coex.R
 import com.beko.coex.databinding.FragmentJoinRoomBinding
-import com.beko.coex.ui.Register.createroom.CreateRoomViewModel
+import com.beko.coex.ui.register.createroom.CreateRoomViewModel
 import com.beko.coex.ui.main.HomePageActivity
-import com.beko.coex.ui.register.JoinRoom.JoinRoomViewModel
 import com.beko.coex.utils.Functions
 import dagger.hilt.android.AndroidEntryPoint
 

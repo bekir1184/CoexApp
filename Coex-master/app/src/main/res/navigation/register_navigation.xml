@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/createAccountFragment"
-        android:name="com.beko.coex.ui.Register.createaccount.CreateAccountFragment"
+        android:name="com.beko.coex.ui.register.createaccount.CreateAccountFragment"
         android:label="fragment_create_account"
         tools:layout="@layout/fragment_create_account" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.beko.coex.ui.Register.signin.SignInFragment"
+        android:name="com.beko.coex.ui.register.signin.SignInFragment"
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/createRoomFragment"
-        android:name="com.beko.coex.ui.Register.createroom.CreateRoomFragment"
+        android:name="com.beko.coex.ui.register.createroom.CreateRoomFragment"
         android:label="fragment_create_room"
         tools:layout="@layout/fragment_create_room" >
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/joinRoomFragment"
-        android:name="com.beko.coex.ui.Register.JoinRoom.JoinRoomFragment"
+        android:name="com.beko.coex.ui.register.joinroom.JoinRoomFragment"
         android:label="fragment_join_room"
         tools:layout="@layout/fragment_join_room" >
         <argument

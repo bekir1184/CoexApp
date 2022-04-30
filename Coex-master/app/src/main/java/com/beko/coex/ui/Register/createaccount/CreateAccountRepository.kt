@@ -1,4 +1,4 @@
-package com.beko.coex.ui.Register.createaccount
+package com.beko.coex.ui.register.createaccount
 
 import android.util.Log
 import com.beko.coex.models.User

@@ -1,10 +1,9 @@
-package com.beko.coex.ui.Register.signin
+package com.beko.coex.ui.register.signin
 
 import android.util.Log
 import com.beko.coex.models.User
 import com.beko.coex.utils.FirebasePath
 import com.beko.coex.utils.Functions
-import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase

@@ -1,4 +1,4 @@
-package com.beko.coex.ui.Register.createaccount
+package com.beko.coex.ui.register.createaccount
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
