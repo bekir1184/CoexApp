@@ -15,6 +15,7 @@ import com.beko.coex.utils.Constants.makeInvisible
 import com.beko.coex.utils.Constants.makeVisible
 import com.beko.coex.utils.ErrorDialog
 import com.beko.coex.utils.Functions
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -99,7 +100,7 @@ class CreateAccountFragment : Fragment(R.layout.fragment_create_account) {
         return User(
             name,
             email,
-            Functions.getCurrentUserUid()!!
+            Functions.getCurrentUserUid().toString()
         )
 
     }

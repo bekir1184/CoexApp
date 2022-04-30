@@ -17,6 +17,7 @@ import com.beko.coex.models.User
 import com.beko.coex.ui.main.HomePageActivity
 import com.beko.coex.utils.Constants.makeVisible
 import com.beko.coex.utils.ErrorDialog
+import com.beko.coex.utils.Functions
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,10 +40,18 @@ class CreateRoomFragment : Fragment() {
 
     private fun setupObserver() {
         createRoomViewModel.isDone.observe(this.viewLifecycleOwner) { isDone ->
-            if (isDone) startIntent()
+            if (isDone){
+                createRoomViewModel.isSetUserDone.observe(this.viewLifecycleOwner){
+                    if(it){
+                        startIntent()
+                    }
+                }
+
+            }
 
         }
     }
+
     private fun startIntent() {
         startActivity(
             Intent(
@@ -64,9 +73,9 @@ class CreateRoomFragment : Fragment() {
     private fun checkRoomData() {
         val roomName = binding.roomName.text.toString()
         val password = binding.password.text.toString()
-        val userList = mutableListOf<User>()
-        userList.add(user)
-        val room = Room(roomName,password, userList)
+        val userList = mutableListOf<String>()
+        userList.add(Functions.getCurrentUserUid().toString())
+        val room = Room(roomName,password, userList, emptyList())
 
         if(roomName.isEmpty() || password.isEmpty()){
             val error =  ErrorDialog("Hata","Tüm alanları doldurunuz")
@@ -82,7 +91,8 @@ class CreateRoomFragment : Fragment() {
             }
             else {
                 binding.progressBarCreateRoom.makeVisible()
-                createRoomViewModel.loginAccount(room)
+                createRoomViewModel.createRoom(room)
+                createRoomViewModel.setUser(User(args.name,args.mail,args.uid,roomName))
             }
         }
 

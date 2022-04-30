@@ -13,10 +13,13 @@
         <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/drawable/button.xml" value="0.2095" />
         <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/layout/activity_home_page.xml" value="0.41212744090441933" />
         <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/layout/expense_item.xml" value="0.264" />
+        <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/layout/fragment_add_expense.xml" value="0.34088848594741616" />
+        <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/layout/fragment_all_expense.xml" value="0.34057971014492755" />
         <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/layout/fragment_create_account.xml" value="0.4365942028985507" />
         <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/layout/fragment_create_room.xml" value="0.34103260869565216" />
         <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/layout/fragment_error_dialog.xml" value="0.4365942028985507" />
-        <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/layout/fragment_homepage.xml" value="0.55" />
+        <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/layout/fragment_homepage.xml" value="0.4" />
         <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/layout/fragment_join_romm.xml" value="0.34103260869565216" />
         <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/layout/fragment_join_room.xml" value="0.34103260869565216" />
         <entry key="..\:/Users/bekir/Desktop/Coex/Coex-master/app/src/main/res/layout/fragment_sign_in.xml" value="0.2324074074074074" />

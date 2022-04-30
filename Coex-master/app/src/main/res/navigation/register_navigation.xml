@@ -61,5 +61,8 @@
         <argument
             android:name="uid"
             app:argType="string" />
+        <action
+            android:id="@+id/action_joinRoomFragment_to_createRoomFragment"
+            app:destination="@id/createRoomFragment" />
     </fragment>
 </navigation>

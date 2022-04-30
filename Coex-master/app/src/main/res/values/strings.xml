@@ -35,4 +35,8 @@
     <string name="i_want_create_a_room">Yeni bir oda kurmak için</string>
     <string name="okey">tamam</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tortor tortor, malesuada eu bibendum vel, dictum pharetra enim.</string>
+    <string name="room_name">Oda Adı</string>
+    <string name="all_expense">Tüm Harcamalar</string>
+    <string name="add_expens">Harcama Ekle</string>
+    <string name="total_expense">Toplam Harcama</string>
 </resources>
