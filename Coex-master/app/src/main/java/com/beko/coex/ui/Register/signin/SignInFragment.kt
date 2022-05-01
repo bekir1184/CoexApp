@@ -1,5 +1,6 @@
 package com.beko.coex.ui.register.signin
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.beko.coex.R
 import com.beko.coex.databinding.FragmentSignInBinding
+import com.beko.coex.models.User
+import com.beko.coex.ui.main.HomePageActivity
 import com.beko.coex.utils.Constants.isValidMail
 import com.beko.coex.utils.Constants.makeVisible
 import com.beko.coex.utils.ErrorDialog
@@ -35,11 +38,33 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
     private fun setupObserver() {
         signinViewModel.isDone.observe(this.viewLifecycleOwner , Observer {isLoggedIn ->
             if(isLoggedIn){
-                val action = SignInFragmentDirections.actionSignInFragmentToCreateRoomFragment("","","")
-                findNavController().navigate(action)
+                signinViewModel.getUser()
+                signinViewModel.user.observe(viewLifecycleOwner, Observer {
+                    if(it.uid.isNullOrEmpty()){
+                        signinViewModel.getUser()
+                        val error =  ErrorDialog("Hata","Bizden kaynaklanan bir hata oluştu lütfen tekrar deneyiniz.")
+                        error.show(requireActivity().supportFragmentManager,"TAG")
+                    }else if(!it.room.isNullOrEmpty()){
+                            startIntent()
+                    }else{
+                        val action = SignInFragmentDirections.actionSignInFragmentToCreateRoomFragment(it)
+                        findNavController().navigate(action)
+                    }
+
+                })
+
             }
 
         })
+
+    }
+    private fun startIntent() {
+        startActivity(
+            Intent(
+                this.requireContext(),
+                HomePageActivity::class.java
+            )
+        ).also { this.requireActivity().finish() }
     }
 
 
@@ -72,6 +97,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
             else {
                 binding.loginProgressBar.makeVisible()
                 signinViewModel.loginAccount(mail, password)
+
             }
         }
     }

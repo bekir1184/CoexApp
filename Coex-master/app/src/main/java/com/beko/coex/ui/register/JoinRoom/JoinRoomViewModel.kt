@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.beko.coex.models.Room
+import com.beko.coex.models.User
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,23 +16,15 @@ import javax.inject.Inject
 class JoinRoomViewModel @Inject constructor(
     private val joinRoomRepository: JoinRoomRepository
 ) : ViewModel(){
-
-    private val _isDone = MutableLiveData<Boolean>()
-    val isDone: LiveData<Boolean>
-        get() = _isDone
-
-    private val _room = MutableLiveData<Room>()
-    val room : LiveData<Room>
+    private val _room = MutableLiveData<Boolean>()
+    val room: LiveData<Boolean>
         get() = _room
 
-    fun loginRoom(roomName: String, roomPassword :String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            _isDone.postValue(joinRoomRepository.joinRoom(roomName,roomPassword))
+    fun getRoom(roomName : String , roomPassword :String ,user: User){
+        CoroutineScope(Dispatchers.IO).launch {
+            _room.postValue(joinRoomRepository.joinRoom(roomName,roomPassword,user))
         }
     }
-    fun getRoom(roomName : String){
-        viewModelScope.launch(Dispatchers.IO) {
-            _room.postValue(joinRoomRepository.getRoom(roomName))
-        }
-    }
+
+
 }

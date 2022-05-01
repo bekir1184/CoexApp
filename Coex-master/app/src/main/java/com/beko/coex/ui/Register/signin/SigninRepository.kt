@@ -1,7 +1,9 @@
 package com.beko.coex.ui.register.signin
 
 import android.util.Log
+import com.beko.coex.models.Room
 import com.beko.coex.models.User
+import com.beko.coex.ui.register.joinroom.JoinRoomRepository
 import com.beko.coex.utils.FirebasePath
 import com.beko.coex.utils.Functions
 import com.google.firebase.auth.FirebaseUser
@@ -20,6 +22,19 @@ class SigninRepository @Inject constructor() {
             Log.e(TAG,e.message.toString())
             false
         }
+    }
+    suspend fun getUser() : User{
+        Functions.getCurrentUserUid().let { uid ->
+            println("Uid : $uid")
+            return try{
+                FirebasePath.userRef.whereEqualTo("uid",uid.toString()).get().await()
+                    .toObjects(User::class.java)[0]
+            }catch (e : Exception ){
+                Log.e(TAG,"HATA---> "+e.message.toString())
+                User()
+            }
+        }
+
     }
     suspend fun sendPasswordResetMail(mail: String): Boolean {
         return try {

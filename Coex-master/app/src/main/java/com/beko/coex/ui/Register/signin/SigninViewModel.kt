@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.beko.coex.models.User
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,9 +23,18 @@ class SigninViewModel @Inject constructor(
     val isSend: LiveData<Boolean>
         get() = _isSend
 
+    private val _user = MutableLiveData<User>()
+    val user : LiveData<User>
+        get()  =  _user
+
     fun loginAccount(mail: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
             _isDone.postValue(signinRepository.loginAccount(mail, password))
+        }
+    }
+    fun getUser(){
+        viewModelScope.launch(Dispatchers.IO) {
+            _user.postValue(signinRepository.getUser())
         }
     }
     fun sendPasswordResetMail(mail: String) {

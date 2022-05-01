@@ -38,31 +38,19 @@
             android:id="@+id/action_createRoomFragment_to_joinRoomFragment"
             app:destination="@id/joinRoomFragment" />
         <argument
-            android:name="name"
-            app:argType="string" />
-        <argument
-            android:name="mail"
-            app:argType="string" />
-        <argument
-            android:name="uid"
-            app:argType="string" />
+            android:name="user"
+            app:argType="com.beko.coex.models.User" />
     </fragment>
     <fragment
         android:id="@+id/joinRoomFragment"
         android:name="com.beko.coex.ui.register.joinroom.JoinRoomFragment"
         android:label="fragment_join_room"
         tools:layout="@layout/fragment_join_room" >
-        <argument
-            android:name="name"
-            app:argType="string" />
-        <argument
-            android:name="mail"
-            app:argType="string" />
-        <argument
-            android:name="uid"
-            app:argType="string" />
         <action
             android:id="@+id/action_joinRoomFragment_to_createRoomFragment"
             app:destination="@id/createRoomFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.beko.coex.models.User" />
     </fragment>
 </navigation>

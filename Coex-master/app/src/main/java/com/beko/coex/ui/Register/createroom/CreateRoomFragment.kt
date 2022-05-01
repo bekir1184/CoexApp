@@ -33,7 +33,7 @@ class CreateRoomFragment : Fragment() {
         binding  = FragmentCreateRoomBinding.inflate(layoutInflater)
         setOnClicks()
         setupObserver()
-        user = User(args.name,args.mail,args.uid)
+        user = args.user
         return binding.root
     }
 
@@ -62,7 +62,9 @@ class CreateRoomFragment : Fragment() {
 
     private fun setOnClicks() {
         binding.clickHereButton.setOnClickListener {
-            findNavController().navigate(R.id.action_createRoomFragment_to_joinRoomFragment)
+            println(args.user)
+            val action = CreateRoomFragmentDirections.actionCreateRoomFragmentToJoinRoomFragment(args.user)
+            findNavController().navigate(action)
         }
         binding.createRoomBtn.setOnClickListener {
             checkRoomData()
@@ -91,7 +93,7 @@ class CreateRoomFragment : Fragment() {
             else {
                 binding.progressBarCreateRoom.makeVisible()
                 createRoomViewModel.createRoom(room)
-                createRoomViewModel.setUser(User(args.name,args.mail,args.uid,roomName))
+                createRoomViewModel.setUser(args.user)
             }
         }
 

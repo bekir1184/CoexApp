@@ -6,23 +6,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.beko.coex.R
 import com.beko.coex.databinding.FragmentJoinRoomBinding
-import com.beko.coex.ui.register.createroom.CreateRoomViewModel
+import com.beko.coex.models.Room
+import com.beko.coex.models.User
 import com.beko.coex.ui.main.HomePageActivity
+import com.beko.coex.ui.register.createroom.CreateRoomViewModel
+import com.beko.coex.utils.ErrorDialog
 import com.beko.coex.utils.Functions
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class JoinRoomFragment : Fragment() {
-    private val joinRoomViewModel :JoinRoomViewModel by viewModels()
-    private val createRoomViewModel : CreateRoomViewModel by viewModels()
     private lateinit var binding : FragmentJoinRoomBinding
-    private lateinit var roomName : String
-    private lateinit var roomPassword : String
+    private val joinRoomViewModel : JoinRoomViewModel by viewModels()
+    private val args : JoinRoomFragmentArgs by navArgs()
+
         override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,20 +39,16 @@ class JoinRoomFragment : Fragment() {
         return binding.root
     }
 
+
     private fun setupObserver() {
-        joinRoomViewModel.isDone.observe(viewLifecycleOwner){
-            if(it){
-                joinRoomViewModel.room.observe(viewLifecycleOwner){ room ->
-                    room.userUidList.add(Functions.getCurrentUserUid().toString())
-                    createRoomViewModel.createRoom(room)
-                }
-            }
-        }
-        createRoomViewModel.isDone.observe(viewLifecycleOwner){
+        joinRoomViewModel.room.observe(viewLifecycleOwner, Observer {
             if(it){
                 startIntent()
+            }else{
+                val error =  ErrorDialog("Hata","Bir hata oluştu lütfen tekrar deneyiniz.")
+                error.show(requireActivity().supportFragmentManager,"TAG")
             }
-        }
+        })
     }
     private fun startIntent() {
         startActivity(
@@ -57,7 +58,6 @@ class JoinRoomFragment : Fragment() {
             )
         ).also { this.requireActivity().finish() }
     }
-
 
     private fun setOnClicks() {
         binding.clickHereButton.setOnClickListener {
@@ -69,13 +69,15 @@ class JoinRoomFragment : Fragment() {
     }
 
     private fun checkRoom() {
-        getTextInput()
-        joinRoomViewModel.loginRoom(roomName,roomPassword)
-
+        joinRoomViewModel.getRoom(
+            binding.roomName.text.toString(),
+            binding.password.text.toString(),
+            args.user)
     }
 
-    private fun getTextInput() {
-        roomName = binding.roomName.text.toString()
-        roomPassword = binding.password.text.toString()
+    private fun clearText() {
+        binding.password.setText("")
+        binding.roomName.setText("")
     }
+
 }

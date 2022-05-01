@@ -235,6 +235,7 @@
                             android:fontFamily="@font/quicksand_bold"
                             android:textColor="@color/green_dark"/>
                         <TextView
+                            android:id="@+id/myExpenseTotal"
                             android:gravity="end"
                             android:layout_weight="5"
                             android:layout_marginStart="12dp"
@@ -266,6 +267,7 @@
                             android:fontFamily="@font/quicksand_bold"
                             android:textColor="@android:color/darker_gray"/>
                         <TextView
+                            android:id="@+id/otherPeopleExpenseTotal"
                             android:gravity="end"
                             android:layout_weight="5"
                             android:layout_marginStart="12dp"
@@ -297,6 +299,7 @@
                             android:fontFamily="@font/quicksand_bold"
                             android:textColor="@android:color/black"/>
                         <TextView
+                            android:id="@+id/roomTotalExpense"
                             android:gravity="end"
                             android:layout_weight="5"
                             android:layout_marginStart="12dp"
@@ -343,17 +346,31 @@
                         android:layout_margin="12dp"
                         android:textColor="@color/black"
                         />
-                    <TextView
-                        android:layout_marginBottom="30dp"
+                    <androidx.cardview.widget.CardView
+                        android:layout_marginHorizontal="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="250  ₺"
-                        android:gravity="center"
-                        android:fontFamily="@font/quicksand_bold"
-                        android:textSize="24sp"
-                        android:layout_margin="12dp"
-                        android:textColor="@color/green_dark"
-                        />
+                        app:cardCornerRadius="9dp"
+                        app:cardBackgroundColor="@color/green_dark">
+                        <TextView
+
+                            android:id="@+id/expensePerPerson"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="250  ₺"
+                            android:gravity="center"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:textSize="24sp"
+                            android:layout_margin="12dp"
+                            android:textColor="@color/white"
+                            />
+                    </androidx.cardview.widget.CardView>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_marginVertical="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/expensStatusRecyler"/>
 
                 </LinearLayout>
 
