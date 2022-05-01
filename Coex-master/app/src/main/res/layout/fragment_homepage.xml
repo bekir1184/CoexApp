@@ -352,18 +352,34 @@
                         android:layout_height="wrap_content"
                         app:cardCornerRadius="9dp"
                         app:cardBackgroundColor="@color/green_dark">
-                        <TextView
-
-                            android:id="@+id/expensePerPerson"
+                        <LinearLayout
+                            android:gravity="center"
+                            android:orientation="horizontal"
                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kişi başı verilecek"
+                                android:gravity="center"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:textSize="20sp"
+                                android:layout_margin="12dp"
+                                android:textColor="@color/green_light"
+                                />
+                            <TextView
+                            android:id="@+id/expensePerPerson"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="250  ₺"
                             android:gravity="center"
                             android:fontFamily="@font/quicksand_bold"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:layout_margin="12dp"
-                            android:textColor="@color/white"
+                            android:textColor="@color/green_light"
                             />
+                        </LinearLayout>
+
                     </androidx.cardview.widget.CardView>
 
                         <androidx.recyclerview.widget.RecyclerView
@@ -371,6 +387,26 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/expensStatusRecyler"/>
+                    <androidx.cardview.widget.CardView
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="9dp"
+                        android:layout_marginVertical="10dp"
+                        app:cardBackgroundColor="@color/green_dark">
+                        <TextView
+
+                            android:id="@+id/paymentConfirmationBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ödeme onayı başlatmak için tıkla"
+                            android:gravity="center"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:textSize="16sp"
+                            android:layout_margin="12dp"
+                            android:textColor="@color/white"
+                            />
+                    </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
 
@@ -383,6 +419,7 @@
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

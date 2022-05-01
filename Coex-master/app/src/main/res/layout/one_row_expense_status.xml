@@ -28,19 +28,19 @@
                 android:textSize="16sp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="5"
                 android:fontFamily="@font/quicksand_bold"
                 android:textColor="@color/black"
                 />
             <TextView
                 android:text="@{expenseStatusModel.cost > 0 ? @string/receive : @string/give}"
                 android:textColor="@{expenseStatusModel.cost > 0 ? @color/green_dark : @android:color/holo_red_light}"
-                android:gravity="center"
+                android:gravity="end"
                 android:padding="5dp"
                 android:textSize="16sp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:fontFamily="@font/quicksand_bold"
                 tools:text="Alacak"
                 tools:textColor="@color/green_dark"
@@ -55,7 +55,7 @@
                 android:textSize="16sp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:fontFamily="@font/quicksand_bold"
                 />
         </LinearLayout>
