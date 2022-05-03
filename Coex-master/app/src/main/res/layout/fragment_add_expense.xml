@@ -1,14 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.addexpense.AddExpense">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Harcama Ekle"
+                android:textColor="@color/black"
+                android:textSize="28sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="10dp"
+                android:id="@+id/expenseCostCard"
+                app:cardBackgroundColor="@color/browser_actions_bg_grey"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/title">
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="@string/expense_cost"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginVertical="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        >
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/expenseCostTI"
+                            android:hint="Harcama tutarı giriniz"
+                            android:inputType="number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="12dp"
+                android:alpha=".5"
+                android:background="@color/browser_actions_bg_grey"
+                app:layout_constraintTop_toBottomOf="@+id/expenseCostCard"
+                tools:layout_editor_absoluteX="20dp" />
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="10dp"
+                android:id="@+id/expenseDescCard"
+                app:cardBackgroundColor="@color/browser_actions_bg_grey"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/view">
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="Harcama Detayı"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginVertical="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        >
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:hint="Harcama Adı"
+                            android:id="@+id/expenseTitleTI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginVertical="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        >
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/expenseDescTI"
+                            android:hint="Harcama Açıklaması"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="12dp"
+                android:alpha=".5"
+                android:background="@color/browser_actions_bg_grey"
+                app:layout_constraintTop_toBottomOf="@+id/expenseDescCard"
+                tools:layout_editor_absoluteX="20dp" />
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="10dp"
+                android:id="@+id/expenseCategoryCard"
+                app:cardBackgroundColor="@color/browser_actions_bg_grey"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/view2">
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="@string/expense_category"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggle_button_group"
+                        android:layout_width="match_parent"
+                        android:layout_marginVertical="15dp"
+                        android:layout_height="wrap_content"
+                        app:selectionRequired="true"
+                        app:checkedButton="@+id/billOp"
+                        app:singleSelection="true">
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/billOp"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="Fatura"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/foodOp"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="Gıda"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/rentOp"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="Kira"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/otherOp"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="Diğer"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/addExpenseBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="48dp"
+                android:padding="15dp"
+                android:text="Harcama ekle"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/expenseCategoryCard"
+                tools:layout_editor_absoluteX="10dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

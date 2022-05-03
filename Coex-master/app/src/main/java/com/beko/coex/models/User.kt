@@ -11,9 +11,10 @@ data class User(
     val email : String = "",
     var uid : String ="",
     var room : String="",
-    val totalCost : Int = 0,
-    val billCost : Int = 0,
-    val houseCost :Int = 0,
-    val foodCost : Int =0,
-    val otherCost : Int = 0,
+    var totalCost : Int = 0,
+    var billCost : Int = 0,
+    var houseCost :Int = 0,
+    var foodCost : Int =0,
+    var otherCost : Int = 0,
+    var approvalStatus : Int = 0 // 0 = waiting for approval , 1 = approved , 2 = approval denied
 ) : Parcelable

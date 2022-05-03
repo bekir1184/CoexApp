@@ -41,4 +41,6 @@
     <string name="all_expense">Tüm Harcamalar</string>
     <string name="add_expens">Harcama Ekle</string>
     <string name="total_expense">Toplam Harcama</string>
+    <string name="expense_cost">Harcama Tutarı</string>
+    <string name="expense_category">Harcama Kategorisi</string>
 </resources>

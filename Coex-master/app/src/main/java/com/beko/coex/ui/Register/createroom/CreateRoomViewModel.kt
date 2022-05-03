@@ -29,9 +29,9 @@ class CreateRoomViewModel @Inject constructor(
             _isDone.postValue(createRoomRepository.createRoom(room))
         }
     }
-    fun setUser(user : User){
+    fun setUser(user : User,roomName : String){
         viewModelScope.launch(Dispatchers.IO){
-            _isSetUserDone.postValue(createRoomRepository.setUser(user))
+            _isSetUserDone.postValue(createRoomRepository.setUser(user,roomName))
         }
     }
 }

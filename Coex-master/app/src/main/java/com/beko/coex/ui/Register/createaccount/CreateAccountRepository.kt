@@ -23,6 +23,7 @@ class CreateAccountRepository @Inject constructor() {
             false
         }
     }
+
     private suspend fun saveUserToFireStore(user: User): Boolean {
         getCurrentUserUid()?.let { uid ->
             user.uid = uid.toString()

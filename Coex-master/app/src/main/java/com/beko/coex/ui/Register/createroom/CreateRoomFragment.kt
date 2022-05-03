@@ -76,7 +76,7 @@ class CreateRoomFragment : Fragment() {
         val password = binding.password.text.toString()
         val userList = mutableListOf<String>()
         userList.add(Functions.getCurrentUserUid().toString())
-        val room = Room(roomName,password, userList, emptyList())
+        val room = Room(roomName,password, userList, mutableListOf())
 
         if(roomName.isEmpty() || password.isEmpty()){
             val error =  ErrorDialog("Hata","Tüm alanları doldurunuz")
@@ -93,7 +93,7 @@ class CreateRoomFragment : Fragment() {
             else {
                 binding.progressBarCreateRoom.makeVisible()
                 createRoomViewModel.createRoom(room)
-                createRoomViewModel.setUser(args.user)
+                createRoomViewModel.setUser(args.user,roomName)
             }
         }
 

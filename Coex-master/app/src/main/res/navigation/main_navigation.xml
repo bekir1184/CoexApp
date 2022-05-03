@@ -9,5 +9,36 @@
         android:id="@+id/homepageFragment"
         android:name="com.beko.coex.ui.main.homepage.HomepageFragment"
         android:label="fragment_homepage"
-        tools:layout="@layout/fragment_homepage" />
+        tools:layout="@layout/fragment_homepage" >
+        <action
+            android:id="@+id/action_homepageFragment_to_addExpense"
+            app:destination="@id/addExpense" />
+        <action
+            android:id="@+id/action_homepageFragment_to_allExpense"
+            app:destination="@id/allExpense" />
+    </fragment>
+    <fragment
+        android:id="@+id/addExpense"
+        android:name="com.beko.coex.ui.main.addexpense.AddExpense"
+        android:label="fragment_add_expense"
+        tools:layout="@layout/fragment_add_expense" >
+        <argument
+            android:name="user"
+            app:argType="com.beko.coex.models.User" />
+        <argument
+            android:name="room"
+            app:argType="com.beko.coex.models.Room" />
+    </fragment>
+    <fragment
+        android:id="@+id/allExpense"
+        android:name="com.beko.coex.ui.main.allexpense.AllExpense"
+        android:label="fragment_all_expense"
+        tools:layout="@layout/fragment_all_expense" >
+        <argument
+            android:name="room"
+            app:argType="com.beko.coex.models.Room" />
+        <argument
+            android:name="user"
+            app:argType="com.beko.coex.models.User" />
+    </fragment>
 </navigation>

@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.beko.coex.R
 import com.beko.coex.databinding.FragmentHomepageBinding
@@ -29,7 +30,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomepageFragment : Fragment(R.layout.fragment_homepage) {
     private lateinit var binding :FragmentHomepageBinding
     private val homepageViewModel : HomepageViewModel by viewModels()
-
+    private lateinit var userGlobal: User
+    private lateinit var roomGlobal : Room
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -68,11 +70,16 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
             startActivity(intent)
             activity?.finish()
         }
-        binding.allExpenseBtn.setOnClickListener {
 
+    }
+    private fun setDirectOnClicks(){
+        binding.allExpenseBtn.setOnClickListener {
+            val action = HomepageFragmentDirections.actionHomepageFragmentToAllExpense(roomGlobal,userGlobal)
+            findNavController().navigate(action)
         }
         binding.addExpenseBtn.setOnClickListener {
-
+            val action = HomepageFragmentDirections.actionHomepageFragmentToAddExpense(userGlobal,roomGlobal)
+            findNavController().navigate(action)
         }
     }
 
@@ -111,7 +118,9 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
 
 
 
+    @SuppressLint("SetTextI18n")
     private fun setData(user: User?, room: Room, userList: MutableList<User>) {
+        println(room)
         val expensePerPerson = room.totalExpense / room.userUidList.size
         val otherPeopleExpense = room.totalExpense- user!!.totalCost
         binding.nameTV.text = user.email.split("@")[0]
@@ -122,6 +131,9 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
         binding.roomTotalExpense.text = "${room.totalExpense} ₺"
         setExpenseStatusRecyclerView(userList,expensePerPerson)
         setPieChart(user.totalCost,otherPeopleExpense)
+        userGlobal = user
+        roomGlobal = room
+        setDirectOnClicks()
 
     }
 

@@ -34,7 +34,6 @@ class SigninRepository @Inject constructor() {
                 User()
             }
         }
-
     }
     suspend fun sendPasswordResetMail(mail: String): Boolean {
         return try {

@@ -25,8 +25,10 @@ class CreateRoomRepository @Inject constructor() {
         }
         return false
     }
-    suspend fun setUser(user: User) : Boolean{
+    suspend fun setUser(user: User,roomName : String) : Boolean{
         Functions.getCurrentUserUid()?.let { uid ->
+            user.room = roomName
+            user.uid = uid
             return try {
                 FirebasePath.userRef.document(uid).set(user).await()
                 true
