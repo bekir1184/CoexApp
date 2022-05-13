@@ -1,6 +1,7 @@
 package com.beko.coex.ui.main.homepage
 
 import android.util.Log
+import com.beko.coex.models.Expense
 import com.beko.coex.models.Room
 import com.beko.coex.models.User
 import com.beko.coex.ui.register.joinroom.JoinRoomRepository
@@ -40,4 +41,25 @@ class HomepageRepository @Inject constructor(){
             Log.e("TAG","HATA")
             Room()
         }
+    suspend fun setRoom(room : Room , user : User) : Boolean{
+        return try {
+            FirebasePath.roomRef.document(room.name).set(room).await()
+            setUser(user)
+        } catch (e: java.lang.Exception) {
+            Log.e("TAG",e.message.toString())
+            false
+        }
+    }
+    private suspend fun setUser(user : User) : Boolean{
+        Functions.getCurrentUserUid()?.let { uid ->
+            return try {
+                FirebasePath.userRef.document(uid).set(user).await()
+                true
+            } catch (e: java.lang.Exception) {
+                Log.e("TAG",e.message.toString())
+                false
+            }
+        }
+        return false
+    }
 }

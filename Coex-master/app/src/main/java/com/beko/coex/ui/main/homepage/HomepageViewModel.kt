@@ -23,6 +23,10 @@ class HomepageViewModel @Inject constructor(
     val roomInfo : LiveData<Room>
         get() = _roomInfo
 
+    private val _setRoomBool = MutableLiveData<Boolean>()
+    val setRoomBoolean : LiveData<Boolean>
+        get() = _setRoomBool
+
     private val _expenseUserList = MutableLiveData<MutableList<User>>()
     val expenseUserList : LiveData<MutableList<User>>
         get() = _expenseUserList
@@ -42,6 +46,12 @@ class HomepageViewModel @Inject constructor(
             _expenseUserList.postValue(homepageRepository.getExpenseUserList(roomName))
         }
     }
+    fun setRoom(room: Room , user: User){
+        CoroutineScope(Dispatchers.IO).launch {
+            _setRoomBool.postValue(homepageRepository.setRoom(room,user))
+        }
+    }
+
 
 
 }

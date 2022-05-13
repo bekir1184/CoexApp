@@ -23,7 +23,7 @@ class AddExpenseRepository @Inject constructor() {
             false
         }
     }
-    suspend fun addExpenseUser(user : User) : Boolean{
+    private suspend fun addExpenseUser(user : User) : Boolean{
         Functions.getCurrentUserUid()?.let { uid ->
             return try {
                 FirebasePath.userRef.document(uid).set(user).await()

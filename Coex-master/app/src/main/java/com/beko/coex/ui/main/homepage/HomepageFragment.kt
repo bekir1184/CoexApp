@@ -40,11 +40,16 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
         binding = FragmentHomepageBinding.inflate(layoutInflater)
         return binding.root
     }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setHomePage()
         setOnClicks()
+        refreshHomepage()
+    }
+    private fun refreshHomepage() {
+        binding.swipeToRefresh.setOnRefreshListener {
+            setHomePage()
+        }
     }
 
     private fun setPieChart(myExpense : Int,otherPeopleExpense : Int) {
@@ -70,7 +75,6 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
             startActivity(intent)
             activity?.finish()
         }
-
     }
     private fun setDirectOnClicks(){
         binding.allExpenseBtn.setOnClickListener {
@@ -111,9 +115,8 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
     private fun setObserver() {
         homepageViewModel.userInfo.observe(this.viewLifecycleOwner, Observer { user ->
             getRoom(user)
+            binding.swipeToRefresh.isRefreshing =false
         })
-
-
     }
 
 
@@ -134,8 +137,51 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
         userGlobal = user
         roomGlobal = room
         setDirectOnClicks()
+        setConfirmButton(user,room,userList)
+    }
+    private fun setConfirmButton(user: User?,room: Room, userList: MutableList<User>) {
+        binding.btnConfrimPayment.isEnabled = (room.approvalStarted == 1 && user!!.approvalStatus == 0) ||
+                (room.approvalStarted == 0 && user!!.approvalStatus == 0)
+
+        if(room.approvalStarted == 1 && user!!.approvalStatus== 1){
+            binding.btnConfrimPayment.text = "Ödeme onayı bekleniyor"
+        }else if(room.approvalStarted == 1 && user!!.approvalStatus== 0){
+            binding.btnConfrimPayment.text = "Ödeme onayı başladı , onaylamak için tıklayınız"
+        }else if(room.approvalStarted == 0 ){
+            binding.btnConfrimPayment.text = "Ödeme onayı başlat"
+        }
+
+        binding.btnConfrimPayment.setOnClickListener {
+            user!!.approvalStatus = 1
+            room.approvalStarted = 1
+            homepageViewModel.setRoom(room, user!!)
+            //deleteAllRoomData(isAllUserApprove(userList))
+            setHomePage()
+        }
+
 
     }
+
+    private fun deleteAllRoomData(allUserApprove: Boolean) {
+        roomGlobal.approvalStarted = 0
+        roomGlobal.expenseList = mutableListOf()
+        roomGlobal.totalBill = 0
+        roomGlobal.totalExpense = 0
+        roomGlobal.totalFood = 0
+        roomGlobal.totalRent = 0
+        roomGlobal.totalOther = 0
+        for (user in roomGlobal.userUidList){
+
+        }
+    }
+
+    private fun isAllUserApprove(userList: MutableList<User>) : Boolean{
+        for(user in userList){
+            if (user.approvalStatus == 0) return false
+        }
+        return true
+    }
+
 
     @SuppressLint("WrongConstant")
     private fun setExpenseStatusRecyclerView(mutableList: MutableList<User>, expensePerPerson:Int) {

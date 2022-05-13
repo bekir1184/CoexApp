@@ -9,7 +9,7 @@ data class Room(
     val name : String = "",
     val password : String ="",
     val userUidList : MutableList<String> = mutableListOf(),
-    val expenseList :@RawValue MutableList<Expense> = mutableListOf(),
+    var expenseList :@RawValue MutableList<Expense> = mutableListOf(),
     var totalExpense : Int = 0,
     var totalBill : Int = 0,
     var totalFood : Int = 0,

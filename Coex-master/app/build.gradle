@@ -101,4 +101,7 @@ dependencies {
     //Android Chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
+    //Refresh
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+
 }
