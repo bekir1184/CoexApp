@@ -62,4 +62,14 @@ class HomepageRepository @Inject constructor(){
         }
         return false
     }
+    suspend fun setUserForUid(user : User) : Boolean{
+        return try {
+            FirebasePath.userRef.document(user.uid).set(user).await()
+            true
+        } catch (e: java.lang.Exception) {
+            Log.e("TAG",e.message.toString())
+            false
+        }
+        return false
+    }
 }

@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Coex.iml" filepath="$PROJECT_DIR$/.idea/modules/Coex.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Coex.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Coex.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Coex.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Coex.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Coex.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Coex.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Coex.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Coex.app.unitTest.iml" />
     </modules>
   </component>
 </project>

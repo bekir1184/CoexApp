@@ -61,6 +61,7 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
         pieDataSet.setColors(Color.rgb(23, 185, 120),Color.rgb(196,196,196))
         val pieData = PieData(pieDataSet)
         pieData.setDrawValues(false)
+        binding.allExpensePieChart.legend.isEnabled = false
         binding.allExpensePieChart.data = pieData
         binding.allExpensePieChart.description.isEnabled = false
         binding.allExpensePieChart.animateY(1000)
@@ -123,7 +124,6 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
 
     @SuppressLint("SetTextI18n")
     private fun setData(user: User?, room: Room, userList: MutableList<User>) {
-        println(room)
         val expensePerPerson = room.totalExpense / room.userUidList.size
         val otherPeopleExpense = room.totalExpense- user!!.totalCost
         binding.nameTV.text = user.email.split("@")[0]
@@ -155,29 +155,44 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
             user!!.approvalStatus = 1
             room.approvalStarted = 1
             homepageViewModel.setRoom(room, user!!)
-            //deleteAllRoomData(isAllUserApprove(userList))
+            //deleteAllRoomData(isAllUserApprove(userList),userList)
             setHomePage()
         }
 
 
     }
 
-    private fun deleteAllRoomData(allUserApprove: Boolean) {
-        roomGlobal.approvalStarted = 0
-        roomGlobal.expenseList = mutableListOf()
-        roomGlobal.totalBill = 0
-        roomGlobal.totalExpense = 0
-        roomGlobal.totalFood = 0
-        roomGlobal.totalRent = 0
-        roomGlobal.totalOther = 0
-        for (user in roomGlobal.userUidList){
-
+    private fun deleteAllRoomData(allUserApprove: Boolean,userList: MutableList<User>) {
+        when {
+            allUserApprove -> {
+                println("Girdim")
+                roomGlobal.approvalStarted = 0
+                roomGlobal.expenseList = mutableListOf()
+                roomGlobal.totalBill = 0
+                roomGlobal.totalExpense = 0
+                roomGlobal.totalFood = 0
+                roomGlobal.totalRent = 0
+                roomGlobal.totalOther = 0
+                homepageViewModel.setRoom(roomGlobal,userGlobal)
+                for (user in userList){
+                    user.approvalStatus = 0
+                    user.billCost = 0
+                    user.foodCost = 0
+                    user.houseCost = 0
+                    user.otherCost = 0
+                    user.totalCost = 0
+                    homepageViewModel.setUser(user)
+                }
+            }else -> {
+            println("Giremedim")}
         }
     }
 
     private fun isAllUserApprove(userList: MutableList<User>) : Boolean{
         for(user in userList){
-            if (user.approvalStatus == 0) return false
+            if (user.approvalStatus == 0){
+                return false
+            }
         }
         return true
     }
