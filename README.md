@@ -31,14 +31,20 @@
 
 <a name="screens"></a>
 ## Screens
- ![üye ol](https://user-images.githubusercontent.com/47231687/166411825-9705706b-ebc4-4f4b-bfee-606ddaddcaf2.jpeg)
- ![giriş yap](https://user-images.githubusercontent.com/47231687/166411970-0b5641ed-ad6a-44b9-89ed-7e084765c29c.jpeg)
- ![yeni bir oda kur](https://user-images.githubusercontent.com/47231687/166412047-a9dd0155-4689-4e86-a997-b300df14bf77.jpeg)
- ![Yeni bir odaya gir](https://user-images.githubusercontent.com/47231687/166412120-e34cfd48-35eb-485d-b335-750773ee40a7.jpeg)
- ![Anasayfa](https://user-images.githubusercontent.com/47231687/166411449-bdb067fb-b00a-4092-97c5-2a8acf54dd23.jpeg)
- ![Anasayfa2](https://user-images.githubusercontent.com/47231687/166412224-785616bd-a52b-4edc-a532-c78187b155ae.jpeg)
- ![Harcama Ekle](https://user-images.githubusercontent.com/47231687/166412307-d7f4ad66-1c18-4037-b52f-d305d648cc38.jpeg)
- ![Tüm Harcamalar](https://user-images.githubusercontent.com/47231687/166412364-560989eb-2a4a-43b0-bcad-b23078ec1943.jpeg)
+| Register Page  | Login | Create New Romm  | 
+| ------------- | ------------- | ------------- |
+|![üye ol](https://user-images.githubusercontent.com/47231687/166411825-9705706b-ebc4-4f4b-bfee-606ddaddcaf2.jpeg)|![giriş yap](https://user-images.githubusercontent.com/47231687/166411970-0b5641ed-ad6a-44b9-89ed-7e084765c29c.jpeg)|![yeni bir oda kur](https://user-images.githubusercontent.com/47231687/166412047-a9dd0155-4689-4e86-a997-b300df14bf77.jpeg)|
+| Join New Room  | Homepage | Homepage  |
+|![Yeni bir odaya gir](https://user-images.githubusercontent.com/47231687/166412120-e34cfd48-35eb-485d-b335-750773ee40a7.jpeg)|![Anasayfa](https://user-images.githubusercontent.com/47231687/166411449-bdb067fb-b00a-4092-97c5-2a8acf54dd23.jpeg)|![Anasayfa2](https://user-images.githubusercontent.com/47231687/166412224-785616bd-a52b-4edc-a532-c78187b155ae.jpeg)|
+ | Add Expense  | All Expense | 
+ |![Harcama Ekle](https://user-images.githubusercontent.com/47231687/166412307-d7f4ad66-1c18-4037-b52f-d305d648cc38.jpeg)|![Tüm Harcamalar](https://user-images.githubusercontent.com/47231687/166412364-560989eb-2a4a-43b0-bcad-b23078ec1943.jpeg)|
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  ## LICENSE
  
