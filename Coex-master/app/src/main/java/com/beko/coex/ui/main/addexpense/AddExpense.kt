@@ -24,6 +24,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.cos
 
+
+//Add expense foto upload
 @AndroidEntryPoint
 class AddExpense : Fragment() {
     private lateinit var binding : FragmentAddExpenseBinding

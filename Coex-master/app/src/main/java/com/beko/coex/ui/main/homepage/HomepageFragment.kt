@@ -40,11 +40,13 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
         binding = FragmentHomepageBinding.inflate(layoutInflater)
         return binding.root
     }
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setHomePage()
         setOnClicks()
         refreshHomepage()
+        checkRoomApprovalComplete()
     }
     private fun refreshHomepage() {
         binding.swipeToRefresh.setOnRefreshListener {
@@ -53,7 +55,7 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
     }
 
     private fun setPieChart(myExpense : Int,otherPeopleExpense : Int) {
-        val list: MutableList<PieEntry> = ArrayList()
+        val list: MutableList<PieEntry> = mutableListOf()
         list.add(PieEntry(myExpense.toFloat(), "Kendi Harcamam"))
         list.add(PieEntry(otherPeopleExpense.toFloat(), "Diğer Kişlerin Harcamaları"))
         val pieDataSet = PieDataSet(list, "")
@@ -102,6 +104,9 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
             homepageViewModel.getExpenseUserList(user.room).also { setObserverRoom(user) }
         }
     }
+    private fun checkRoomApprovalComplete(){
+
+    }
 
     private fun setObserverRoom(user: User) {
         homepageViewModel.roomInfo.observe(viewLifecycleOwner, Observer { room ->
@@ -110,7 +115,6 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
             })
 
         })
-
     }
 
     private fun setObserver() {
@@ -150,22 +154,28 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
         }else if(room.approvalStarted == 0 ){
             binding.btnConfrimPayment.text = "Ödeme onayı başlat"
         }
-
+        var isAnyoneRefusing = false
+        for (user in userList){
+            if(user.approvalStatus==0){
+                isAnyoneRefusing = true
+                break
+            }
+        }
         binding.btnConfrimPayment.setOnClickListener {
             user!!.approvalStatus = 1
             room.approvalStarted = 1
-            homepageViewModel.setRoom(room, user!!)
-            //deleteAllRoomData(isAllUserApprove(userList),userList)
+            homepageViewModel.setRoom(room, user)
             setHomePage()
         }
-
+        if(!isAnyoneRefusing){
+            deleteAllRoomData(isAllUserApprove(userList),userList)
+        }
 
     }
 
     private fun deleteAllRoomData(allUserApprove: Boolean,userList: MutableList<User>) {
-        when {
-            allUserApprove -> {
-                println("Girdim")
+        when(allUserApprove) {
+             true -> {
                 roomGlobal.approvalStarted = 0
                 roomGlobal.expenseList = mutableListOf()
                 roomGlobal.totalBill = 0
@@ -182,9 +192,12 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
                     user.otherCost = 0
                     user.totalCost = 0
                     homepageViewModel.setUser(user)
+                    println(user)
                 }
-            }else -> {
-            println("Giremedim")}
+            }
+            else -> {
+
+            }
         }
     }
 
@@ -203,7 +216,6 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
         val expenseStatusAdapter = ExpenseStatusAdapter()
         val mutableListExpense = mutableListOf<ExpenseStatusModel>()
         for(i in mutableList){
-            println("$expensePerPerson - ${i.totalCost}")
             val cost =  i.totalCost - expensePerPerson
             mutableListExpense.add(ExpenseStatusModel(i.email.split("@")[0],cost))
         }

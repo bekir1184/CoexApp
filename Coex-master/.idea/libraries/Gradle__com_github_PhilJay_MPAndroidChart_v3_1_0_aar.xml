@@ -1,10 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.PhilJay:MPAndroidChart:v3.1.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/de82819ef8446ac316da7276036005ce/transformed/MPAndroidChart-v3.1.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f0eccabee5056f66482c3b1c51e4f8c7/transformed/MPAndroidChart-v3.1.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f0eccabee5056f66482c3b1c51e4f8c7/transformed/MPAndroidChart-v3.1.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/f0eccabee5056f66482c3b1c51e4f8c7/transformed/MPAndroidChart-v3.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9259da593febda627d9fe194cfabeb00/transformed/MPAndroidChart-v3.1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9259da593febda627d9fe194cfabeb00/transformed/MPAndroidChart-v3.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9259da593febda627d9fe194cfabeb00/transformed/MPAndroidChart-v3.1.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v3.1.0/4c8733ccf3f0a9d50357193b03fe2853fc73ff31/MPAndroidChart-v3.1.0-javadoc.jar!/" />

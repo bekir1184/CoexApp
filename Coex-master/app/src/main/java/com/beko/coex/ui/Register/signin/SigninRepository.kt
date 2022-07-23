@@ -23,6 +23,7 @@ class SigninRepository @Inject constructor() {
             false
         }
     }
+
     suspend fun getUser() : User{
         Functions.getCurrentUserUid().let { uid ->
             println("Uid : $uid")
